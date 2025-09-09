@@ -1,11 +1,12 @@
-//let form = document.querySelector('form');
 let submitButton = document.querySelector("#submit");
 submitButton.addEventListener('click', (event) => {
       event.preventDefault();
+      let form = document.querySelector('form');
+      const data = Object.fromEntries(new FormData(form).entries());
       const container = document.querySelector(".container");
       const keys = ["email", "vnev", "knev", "pass", "cpass"]
-        createTable(data, container, keys);
-//    const data = Object.fromEntries(new FormData(form).entries());
+      createTable(data, container, keys);
+      form.reset();
 //    console.log(data);
 //    let email = document.getElementById("email").value();
 //    let fname = document.getElementById("fname").value();
