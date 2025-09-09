@@ -7,22 +7,6 @@ submitButton.addEventListener('click', (event) => {
       const keys = ["email", "vnev", "knev", "pass", "cpass"]
       createTable(data, container, keys);
       form.reset();
-//    console.log(data);
-//    let email = document.getElementById("email").value();
-//    let fname = document.getElementById("fname").value();
-//    let lname = document.getElementById("lname").value();
-//    let password = document.getElementById("password").value();
-//    let cpassword = document.getElementById("cpassword").value();
-
-//    let object = {
-//        email: email,
-//        firstname: fname,
-//        lastname: lname,
-//        password: password,
-//        confirmpassword: cpassword
-//    }
-//    console.log(object.entries())
-
 })
 
 const createTable = (data, container, keys) => {
@@ -38,6 +22,7 @@ const createTableHead = (data) => {
   {
       tr.append(createTh(data));
   }
+  tr.append(createTh(data));
 }
 
 const createTh = () => {
@@ -45,6 +30,23 @@ const createTh = () => {
     let tr = document.createElement("tr");
     th.textContent = data;
     return th;
+}
+
+const createTableBody = (data) => {
+  let tableBody = document.createElement("tableBody");
+  let tr = document.createElement("tr");
+  for (let element of Object.values(data))
+  {
+      tr.appendChild(createTd(element));
+  }
+  tableBody.appendChild(tr);
+  return tableBody;
+}
+
+const createTd = (data) => {
+  let td = document.createElement("td");
+  td.textContent = data;
+  return td;
 }
 
 //function crateTable()
