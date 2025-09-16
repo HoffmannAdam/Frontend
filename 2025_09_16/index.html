@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="hu">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="main.js" defer></script>
+    <title>Title</title>
+
+</head>
+
+<body>
+
+    <header class="container-fluid">
+        <h1 class="text-center">Digitális Jövő Workshop 2025</h1>
+        <h2 class="text-center">2025. július 20. • Budapest</h2>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <main class="col-md-9">
+                <form id="form">
+                    <div class="input-group-md-3">
+                        <label for="fname" class="form-label">Teljes név</label>
+
+                        <input type="text" class="form-control" name="fname" id="fname">
+                    </div>
+
+                    <div class="input-group-md-3">
+                        <label for="email" class="form-control">Email cím</label>
+
+                        <input type="email" class="form-control" name="email" id="email">
+                    </div>
+
+                    <div class="input-group-md-3">
+                        <label for="age" class="form-control">Életkor</label>
+
+                        <input type="number" class="form-control" name="age" id="age">
+                    </div>
+
+                    <div class="input-group-md-3">
+                        <label for="select" class="form-control">Kiválasztott szekció</label>
+
+                        <select class="form-select" name="select" id="select">
+                            <option value="unselected">Válasszon ki egy szekciót</option>
+                            <option value="Webfejlesztés">Webfejlesztés</option>
+                            <option value="UI/UX">UI/UX</option>
+                            <option value="Adatbiztonság">Adatbiztonság</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group-md-3">
+                        <label class="form-check-label">Elfogadom a részvételi feltételeket</label>
+
+                        <input type="checkbox" class="form-check-input" name="check" id="check">
+                    </div>
+
+                    <div class="input-group-md-3">
+                        <input type="submit" class="btn btn-success" value="Regisztráció">
+                    </div>
+                </form>
+
+                <div class="formDataDisplay"></div>
+
+            </main>
+            <aside class="col-md-3">
+                <ul class="list-group">
+                    <li class="list-group-item text-center bg-info">Info</li>
+                    <li class="list-group-item">Helyszín: Budapest, Infopark, G épület </li>
+                    <li class="list-group-item">Időpont: 2025. július 20., 10:00 – 16:00 </li>
+                    <li class="list-group-item">Részvételi feltételek: A részvétel ingyenes, de regisztrációhoz kötött. 16 éven felüliek jelentkezhetnek</li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+
+    <footer class="container-fluid">
+        <p class="text-center" >Szervező: TechAkadémia • © 2025 • Minden jog fenntartva	</p>
+    </footer>
+
+</body>
+
+</html>
