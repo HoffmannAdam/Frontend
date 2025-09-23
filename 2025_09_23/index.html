@@ -15,57 +15,49 @@
 
 <body>
 
-<header class="text-center mb-3">
+<header class="constainer-fluid text-center">
     <h1>Tapsifülia Gazdasági Dashboard</h1>
 </header>
 
-<main class="container-fluid">
-            <form id="controls" class="row">
-                <div class="col">
-                    <label class="form-label" for="categorySelect">Kategória szűrés</label>
-                    <select id="categorySelect" class="form-select">
+<main>
+
+    <section class="container-fluid">
+            <form>
+                <div class="col-md-4 input-group mb-3">
+                    <label for="category-filter" class="input-group-text">Kategoria</label>
+                    <select id="category-filter" class="form-select">
                         <option value="all">Összes</option>
-                        <option value="gazdag">gazdagok pénze</option>
-                        <option value="kozep">középosztály pénze</option>
-                        <option value="szegeny">szegények pénze</option>
+                        <option value="gazdagok pénze">Gazdag</option>
+                        <option value="középosztány pénze">Közép</option>
+                        <option value="szegények pénze">Szegény</option>
                     </select>
-                </div>
-                <div class="col">
-                    <label class="form-label" for="minValue">Minimum</label>
-                    <input id="minValue" type="number" class="form-control" placeholder="Pl. 1000" min="0" />
-                </div>
-                <div class="col">
-                    <label class="form-label" for="maxValue">Maximum</label>
-                    <input id="maxValue" type="number" class="form-control" placeholder="Pl. 5000" min="0" />
-                </div>
-                <div class="col">
-                    <button id="btn" class="btn btn-success">Szűrés alkalmazása</button>
+
+                    <label for="min-value" class="input-group-text">Minimum érték:</label>
+                    <input class="form-control" type="number" id="min-value" placeholder="Pl. 1000">
+
+                    <label for="max-value" class="input-group-text">Maximum érték:</label>
+                    <input class="form-control" type="number" id="max-value" placeholder="Pl. 5000">
+
+                    <button id="apply-filters" class="btn btn-sm btn-successs">Szűrés alkalmazása</button>
+
                 </div>
             </form>
 
-    <div class="row">
-        <section>
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Érték (Fülium)</th>
-                        <th scope="col">Típus</th>
-                        <th scope="col">Kategória</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+    </section>
 
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </div>
-
-    <footer class="text-center">
-
-    </footer>
+    <section class="mt-2">
+        <table class="table" id="fulium-table">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Érték (Fülium)</td>
+                    <td>Típus</td>
+                    <td>Kategória</td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
 
 </main>
 
