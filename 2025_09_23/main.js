@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const tableBody = document.querySelector('#fulium-table tbody');
     renderTable(fuliumData, tableBody);
+
+    document.querySelector('#apply-filters').addEventListener('click', (e) => {
+        e.preventDefault();
+        tableBody.innerHTML = '';
+        filter(fuliumData, tableBody);
+    })
 })
 
 const renderTable = (data, tbody) => {
@@ -26,6 +32,17 @@ const createTd = (data) => {
     return td;
 }
 
-const filter = (data) => {
-    const filteredData = [...data];
+const filter = (data, tbody) => {
+    let filteredData = [...data];
+    const selectedValue = document.querySelector('#category-filter').value;
+    if (selectedValue !== 'all')
+    {
+        filteredData = filteredData.filter(item => item.category === selectedValue);
+    }
+    const minValue = parseInt(document.querySelector('#min-value').value) || 0;
+    const maxValue = parseInt(document.querySelector('#max-value').value) || Infinity;
+
+    filteredData = filteredData.filter(item => item.value >= minValue && item.value <= maxValue);
+
+    renderTable(filteredData, tbody);
 }
