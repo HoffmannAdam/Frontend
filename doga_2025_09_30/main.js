@@ -61,44 +61,50 @@ id: i + 1,
   };
 });
 
+//#endregion
+console.log(books);
 
-const totalPages = (books) => {
-    let n = books.pages;
-    let total = 0;
-    for (let i = 0; i < n; i++)
-    {
-        total += books.pages;
-    }
-    return total;
+function totalPages(books) {
+    return books.reduce((sum, book) => sum + book.pages, 0);
 }
 document.querySelector("#f1").innerText = totalPages(books);
 
-const topAuthorByCount = (books) => {
-
-}
-
-const averagePriceByCategory = (books) => {
-
-
-
-    const object = {
-        category: "átlag"
-    }
-}
-
-const countAvailable = (books) => {
-    let n = books.length;
-    let count = 0;
-    for (let i = 0; i < n; i++)
+function topAuthorByCount(books) {
+    const counts = {};
+    for (const book of books)
     {
-        if (books.available === true)
+        counts[book.author] = (counts[book.author] || 0) + 1;
+    }
+    let top = null, max = 0;
+    for (let author in counts)
+    {
+        if (counts[author] > max)
         {
-            count++
+            max = counts[author];
+            top = author;
         }
     }
-    return count;
+    return top;
+}
+document.querySelector("#f2").innerText = topAuthorByCount(books);
+
+function averagePriceByCategory(books) {
+    const sum = {}, count = {};
+    for (const book of books)
+    {
+        sum[book.category] = (sum[book.category] || 0) + book.priceHUF;
+        count[book.category] = (count[book.category] || 0) + 1;
+    }
+    const averages = {};
+    for (let category in sum)
+    {
+        averages[category] = Math.round(sum[category] / count[category]);
+    }
+    return averages;
+}
+document.querySelector("#f3").innerText = JSON.stringify(averagePriceByCategory(books));
+
+function countAvailable(books) {
+    return books.filter(book => book.available).length;
 }
 document.querySelector("#f4").innerText = countAvailable(books);
-
-//#endregion
-console.log(books);
