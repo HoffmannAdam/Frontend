@@ -23,7 +23,7 @@ body {
 }
 
 .card {
-    width: min(680px 92vw);
+    width: min(680px, 92vw);
     border: 1px solid #e4e4e7;
     background: #fff;
     border-radius: 16px;
@@ -38,7 +38,7 @@ body {
 .timer {
     font-size: clamp(2.8rem, 8vw, 6rem);
     font-weight: 800;
-    letter-spacing: .04;
+    letter-spacing: 0.04;
     line-height: 1;
 }
 
