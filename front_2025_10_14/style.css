@@ -1,9 +1,12 @@
 .card {
-    width: 20rem;
+    width: 15rem;
 }
 .btn-danger {
     width: 6rem;
 }
 .btn-warning {
+    width: 6rem;
+}
+.btn-secondary {
     width: 6rem;
 }

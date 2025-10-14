@@ -31,16 +31,19 @@ function cardFunction()
     const cardText = document.createElement("p");
     const cardDeleteButton = document.createElement("button");
     const cardFavouriteButton = document.createElement("button");
+    const cardRemoveFavouriteButton = document.createElement("button");
 
     card.classList.add("card");
     cardBody.classList.add("card-body");
     cardText.classList.add("card-text");
     cardDeleteButton.classList.add("btn", "btn-danger");
     cardFavouriteButton.classList.add("btn", "btn-warning");
+    cardRemoveFavouriteButton.classList.add("btn", "btn-secondary");
 
     cardText.textContent = inputText.value;
     cardDeleteButton.textContent = "Törlés";
     cardFavouriteButton.textContent = "Kedvenc";
+    cardRemoveFavouriteButton.textContent = "Vissza";
 
     card.appendChild(cardBody);
     cardBody.appendChild(cardText);
@@ -54,11 +57,15 @@ function cardFunction()
         e.preventDefault();
         card.remove();
         delCol.appendChild(card);
+        cardDeleteButton.remove();
+        cardFavouriteButton.remove();
+
     })
     cardFavouriteButton.addEventListener("click", (e) => {
        e.preventDefault();
        card.remove();
        favCol.appendChild(card);
+       cardFavouriteButton.remove();
     });
 }
 
