@@ -1,7 +1,30 @@
-const toDo = document.querySelector(".toDo");
+const kanBan = document.querySelector(".kanBan");
 const addBtn = document.querySelector(".btn");
-const inputText = document.querySelector(".input")
-function addCard()
+const inputText = document.querySelector(".input");
+
+const container = document.createElement("div");
+const row = document.createElement("row");
+const toDoCol = document.createElement("div");
+const favCol = document.createElement("div");
+const delCol = document.createElement("div");
+
+container.classList.add("container-fluid", "text-center");
+row.classList.add("row");
+toDoCol.classList.add("col");
+favCol.classList.add("col");
+delCol.classList.add("col");
+
+toDoCol.textContent = "To do:";
+favCol.textContent = "Kedvencek:";
+delCol.textContent = "Kuka:";
+
+container.appendChild(row);
+row.appendChild(toDoCol);
+row.appendChild(favCol);
+row.appendChild(delCol);
+kanBan.appendChild(container);
+
+function cardFunction()
 {
     const card = document.createElement("div");
     const cardBody = document.createElement("div");
@@ -23,22 +46,26 @@ function addCard()
     cardBody.appendChild(cardText);
     cardBody.appendChild(cardDeleteButton);
     cardBody.appendChild(cardFavouriteButton);
-    toDo.appendChild(card);
+    toDoCol.appendChild(card);
 
     inputText.value = "";
 
-    cardDeleteButton.addEventListener("click", () => card.remove());
-    //cardFavouriteButton.addEventListener("click", () => card.style.color = "yellow");
+    cardDeleteButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        card.remove();
+        delCol.appendChild(card);
+    })
     cardFavouriteButton.addEventListener("click", (e) => {
        e.preventDefault();
-       card.style.color = "yellow";
+       card.remove();
+       favCol.appendChild(card);
     });
 }
 
-addBtn.addEventListener("click", addCard);
+addBtn.addEventListener("click", cardFunction);
 document.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-        addCard();
         e.preventDefault();
+        cardFunction();
     }
 });
