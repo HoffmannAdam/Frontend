@@ -1,12 +1,22 @@
+.kanBan {
+    margin-block: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
 .card {
     width: 15rem;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 .btn-danger {
-    width: 6rem;
+    width: 10rem;
+    margin-bottom: 0.5rem;
 }
 .btn-warning {
-    width: 6rem;
+    width: 10rem;
+    margin-bottom: 0.5rem;
 }
 .btn-secondary {
-    width: 6rem;
+    width: 10rem;
+    margin-bottom: 0.5rem;
 }

@@ -31,19 +31,19 @@ function cardFunction()
     const cardText = document.createElement("p");
     const cardDeleteButton = document.createElement("button");
     const cardFavouriteButton = document.createElement("button");
-    const cardRemoveFavouriteButton = document.createElement("button");
+    const cardRedoButton = document.createElement("button");
 
     card.classList.add("card");
     cardBody.classList.add("card-body");
     cardText.classList.add("card-text");
     cardDeleteButton.classList.add("btn", "btn-danger");
     cardFavouriteButton.classList.add("btn", "btn-warning");
-    cardRemoveFavouriteButton.classList.add("btn", "btn-secondary");
+    cardRedoButton.classList.add("btn", "btn-secondary");
 
     cardText.textContent = inputText.value;
     cardDeleteButton.textContent = "Törlés";
     cardFavouriteButton.textContent = "Kedvenc";
-    cardRemoveFavouriteButton.textContent = "Vissza";
+    cardRedoButton.textContent = "Visszavonás";
 
     card.appendChild(cardBody);
     cardBody.appendChild(cardText);
@@ -59,14 +59,24 @@ function cardFunction()
         delCol.appendChild(card);
         cardDeleteButton.remove();
         cardFavouriteButton.remove();
+        card.appendChild(cardRedoButton);
 
-    })
+    });
     cardFavouriteButton.addEventListener("click", (e) => {
        e.preventDefault();
        card.remove();
        favCol.appendChild(card);
        cardFavouriteButton.remove();
+       card.appendChild(cardRedoButton);
     });
+    cardRedoButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        card.remove();
+        toDoCol.appendChild(card);
+        cardRedoButton.remove();
+        card.appendChild(cardDeleteButton);
+        card.appendChild(cardFavouriteButton);
+    })
 }
 
 addBtn.addEventListener("click", cardFunction);
