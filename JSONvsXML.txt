@@ -1,0 +1,12 @@
+JSON vs XML
+
+Szintaxis:
+	A JSON egyszerűbb és tömörebb kulcs-érték párokkal, míg az XML bőbeszédűbb tag-alapú struktúrát használ nyitó és záró tagekkel.
+Adattípusok:
+	A JSON natívan támogat többféle adattípust (szám, string, boolean, tömb stb.), az XML viszont mindent szövegként kezel.
+Méret:
+	A JSON kompaktabb, kisebb fájlméretet eredményez és gyorsabban feldolgozható.
+Használat:
+	A JSON a modern webes API-k elsődleges formátuma lett egyszerűsége miatt. Az XML-t inkább dokumentum-orientált rendszerekben, 	konfigurációs fájlokban és olyan esetekben használják, ahol részletes validáció szükséges.
+Attribútumok:
+	z XML támogatja a tag-attribútumokat metaadatok tárolására, a JSON nem.
